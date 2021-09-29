@@ -13,7 +13,7 @@ ul {
 }
 
 .bg-steel {
-  background-color: #5f788a;
+  background-color: #007f4a;
 }
 
 .site-header .navbar-nav .nav-link {
@@ -118,4 +118,48 @@ a.article-title:hover {
 .container-navbar {
   margin: auto;
   text-align: center;
+}
+
+.coins-table {
+  border-collapse: collapse;
+  text-align: center;
+  font-weight: 450;
+  width: 100%;
+}
+
+.coins-table td, .coins-table th {
+  border: 2px solid grey;
+}
+
+.coins-table td {
+  padding: 0px 20px 0px 20px;
+}
+
+.coins-table tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.coins-table tr:hover {
+  background-color: #ddd;
+}
+
+.year-row {
+  border: 2px solid #5d5d5d;
+  background-color: #00b368;
+}
+
+.year-row td {
+  border: 2px solid #5d5d5d;
+  background-color: #00b368;
+  font-weight: bold;
+  padding: 2px 0px 2px 0px;
+}
+
+.coins-table th {
+  border: 2px solid #5d5d5d;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: center;
+  background-color: #007f4a;
+  color: white;
 }

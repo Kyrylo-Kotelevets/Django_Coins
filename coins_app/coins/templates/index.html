@@ -1,12 +1,42 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-{% for coin in coins %}
-    <h6>{{coin.title}}</h6>
-{% endfor %}
-</body>
-</html>
+{% extends "base.html" %}
+{% block content %}
+<table class="coins-table">
+    <thead>
+        <tr>
+            <th>Дата</th>
+            <th>Номинал</th>
+            <th>Тираж</th>
+            <th>Название</th>
+            <th>Цена</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        {% for coin in coins %}
+            {% ifchanged coin.year %}
+                <tr class="year-row">
+                    <td colspan="3"></td>
+                    <td>{{ coin.year }}</td>
+                    <td></td>
+                </tr>
+            {% endifchanged %}
+
+            <tr>
+                <td>{{ coin.release_date|date:"Y.m.d" }}</td>
+                <td>{{ coin.nominal }}</td>
+                <td>{{ coin.circulation }}</td>
+                <td>{{ coin.short_title }}</td>
+                <td>{{ coin.price }}</td>
+            </tr>
+        {% endfor %}
+    </tbody>
+
+    <tfoot>
+        <tr>
+            <td colspan="4">Всего {{ coins_count }} шт.</td>
+            <td>{{coins_sum}} грн.</td>
+        </tr>
+    </tfoot>
+</table>
+
+{% endblock content %}

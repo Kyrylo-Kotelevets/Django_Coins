@@ -25,7 +25,7 @@ DATE_FORMAT = "%d.%m.%Y"
 TODAY = datetime.now().strftime(DATE_FORMAT)
 
 
-def add_coin(coin_row: BeautifulSoup.element.Tag) -> None:
+def add_coin(coin_row) -> None:
     """
     Function for parsing coin data, such as weight, series, images etc.
 
@@ -113,7 +113,6 @@ def update_prices(add_new: bool = True) -> None:
 
         # We delete header and footer and start from bottom
         for coin_row in soup.table.find_all(["tr"])[-1:1:-1]:
-            print(type(coin_row))
             # If we have row with coin data
             if len(coin_row.find_all(["td"])) == 5 and coin_row.a.text:
                 title = coin_row.a.text

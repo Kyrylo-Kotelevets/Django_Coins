@@ -5,6 +5,7 @@ from datetime import date
 
 from typing import Optional
 from django.db import models
+from django.db.models import QuerySet
 from django.db.models.functions import Length
 
 models.CharField.register_lookup(Length)
@@ -68,6 +69,17 @@ class Coin(models.Model):
             Coin with matching title and year if such exists
         """
         return cls.objects.filter(title=title, release_date__year=year).first()
+
+    @classmethod
+    def get_all(cls) -> QuerySet:
+        """Returns all objects of the class
+
+        Returns
+        -------
+        QuerySet
+            Set that contains all coins
+        """
+        return cls.objects.all()
 
     class Meta:
         """
